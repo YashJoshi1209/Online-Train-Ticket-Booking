@@ -4,8 +4,8 @@
 ## **Do following things to run project on local computer.**
 ***
 
-* `git clone https://github.com/Preetmungara/Online-Train-Ticket-Booking.git`
-
+* `git clone https://github.com/YashJoshi1209/Online-Train-Ticket-Booking.git
+* 
 * `python manage.py migrate`
 
 * `python manage.py createsuperuser`
