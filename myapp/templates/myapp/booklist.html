@@ -1,0 +1,58 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<h3>{{msg}}</h3>
+<h2 style="padding-left:5px">List of Trains</h2>
+<table class="table table-striped">
+    <thead style="background-color: darkgrey;color: white;">
+    <td>BOOKING ID</td>
+    <td>USER NAME</td>
+    <td>TRAIN NAME</td>
+    <td>SOURCE</td>
+    <td>DESTINATION</td>
+    <td>NUM OF SEATS</td>
+    <td>PRICE</td>
+    <td>DATE</td>
+    <td>TIME</td>
+    <td>STATUS</td>
+
+
+    </thead>
+
+    {% for row in book_list %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.train_name}}</td>
+        <td>{{row.source}}</td>
+        <td>{{row.dest}}</td>
+        <td>{{row.nos}}</td>
+        <td>{{row.price}}</td>
+        <td>{{row.date}}</td>
+        <td>{{row.time}}</td>
+        <td>{{row.status}}</td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+<form action="{% url 'cancellings' %}" method="post">
+    <h3 style="padding-left:30px">Choose Train to Cancel</h3>
+    {% csrf_token %}
+    <div class="col-auto">
+        <label for="example-email-input" class="col-2 col-form-label">Train ID</label>
+        <div class="col-2">
+            <input name='train_id' class="form-control" type="number" id="example-email-input">
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <i style="padding-left: 30px;"/>
+    <button type="submit" class="btn btn-danger">Cancel Train</button>
+
+
+    {{error}}
+
+</form>
+
+{% endblock %}
